@@ -5,9 +5,12 @@ import "./App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function fetchMoviesHandler() {
+    setIsLoading(true);
     const response = await fetch("https://swapi.dev/api/films/");
+    if(response) setIsLoading(false);
     const data = await response.json();
     const transformedMovies = data.results.map((movieData) => {
       return {
@@ -27,6 +30,7 @@ function App() {
       </section>
       <section>
         <MoviesList movies={movies} />
+        <h5>{isLoading && `Loading data....`}</h5>
       </section>
     </React.Fragment>
   );
