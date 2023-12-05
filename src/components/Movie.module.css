@@ -18,3 +18,13 @@
   margin: 0;
   font-size: 1rem;
 }
+
+.movieBtn {
+  font: inherit;
+  cursor: pointer;
+  background: #7d45c9;
+  border: 1px solid #230052;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 20px;
+}
